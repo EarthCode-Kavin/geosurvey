@@ -1,11 +1,8 @@
-```markdown
+
 # 🌍 GeoSurvey Platform
 
 ### **The Ultimate Open-Source Web Platform for Geotechnical & Geophysical Survey Analysis.**
 Integrating **SimPEG** and **pyGIMLi** for scientific computation with stunning, interactive **Plotly.js** visualizations and automated reporting.
-
----
-```
 
 ## ✨ Features
 
