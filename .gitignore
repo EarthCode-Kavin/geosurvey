@@ -1,62 +1,32 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-
-# Virtual environments
-.venv/
-venv/
-ENV/
-
-# Distribution / packaging
-*.egg-info/
-dist/
-build/
-*.egg
-
-# Node.js
+# dependencies
 node_modules/
+.pnp
+.pnp.*
+
+# next.js
 .next/
 out/
-*.tsbuildinfo
+build/
+next-env.d.ts
 
-# Environment variables
+# misc
+.DS_Store
+Thumbs.db
+*.pem
+.vscode/
+.idea/
+*.swp
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# env files
 .env
 .env.local
 .env.*.local
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Data uploads
-uploads/
-*.dat
-*.res
-
-# Database
-*.db
-*.sqlite3
-
-# Docker
-docker-compose.override.yml
-
-# Coverage / testing
-.coverage
-htmlcov/
-.pytest_cache/
-coverage/
-
-# Logs
-*.log
-logs/
-
-# Generated reports
-generated_reports/
+# typescript
+*.tsbuildinfo
