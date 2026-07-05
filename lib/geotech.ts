@@ -266,8 +266,15 @@ export function foundationRecommendation(
   if (waterTableDepth < 2) cautions.push("Shallow groundwater — dewatering will be needed for excavations; check uplift and buoyancy.");
   const softClay = layers.find((l, i) => i < 3 && l.cohesion > 25 && l.sptN < 4);
   if (softClay) cautions.push(`Soft cohesive layer (“${softClay.name}”, N=${softClay.sptN}) near surface — expect long-term consolidation settlement.`);
-  const looseSand = layers.find((l, i) => i < 3 && l.cohesion <= 25 && l.sptN < 10);
-  if (looseSand && waterTableDepth < 5) cautions.push(`Loose saturated granular layer (“${looseSand.name}”) — evaluate liquefaction potential in seismic regions.`);
+  // loose granular layer below the water table (top 3 layers only)
+  let dTop = 0;
+  let looseSand: GroundLayer | undefined;
+  for (let i = 0; i < Math.min(3, layers.length); i++) {
+    const l = layers[i];
+    if (l.cohesion <= 25 && l.sptN < 10 && waterTableDepth < dTop + l.thickness) { looseSand = l; break; }
+    dTop += l.thickness;
+  }
+  if (looseSand) cautions.push(`Loose saturated granular layer (“${looseSand.name}”) — evaluate liquefaction potential in seismic regions.`);
   if (topLayer.uscs === "OL") cautions.push("Organic topsoil must be stripped before founding any structure.");
 
   if (qa > 300 && settlementMm < 25) {
